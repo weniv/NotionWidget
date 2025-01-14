@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Motivational Quotes</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding: 20px;
+            }
+            #quote {
+                font-size: 20px;
+                margin: 20px 0;
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Daily Quote</h1>
+        <div id="quote">Click below to get motivated!</div>
+        <button onclick="generateQuote()">Get Quote</button>
+
+        <script>
+            const quotes = [
+                "Believe you can and you're halfway there.",
+                "Success is not the key to happiness. Happiness is the key to success.",
+                "The only way to do great work is to love what you do.",
+                "Dream big and dare to fail.",
+            ];
+
+            function generateQuote() {
+                const randomIndex = Math.floor(Math.random() * quotes.length);
+                document.getElementById("quote").innerText = quotes[randomIndex];
+            }
+        </script>
+    </body>
+</html>

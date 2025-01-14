@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Reading Tracker</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding: 20px;
+            }
+            #progress-bar {
+                height: 20px;
+                background-color: lightgray;
+                margin-top: 10px;
+            }
+            #progress {
+                height: 20px;
+                background-color: green;
+                width: 0%;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Reading Tracker</h1>
+        <p>Book Title: <input id="book-title" type="text" placeholder="Enter book title" /></p>
+        <p>Total Pages: <input id="total-pages" type="number" /></p>
+        <p>Pages Read: <input id="pages-read" type="number" onchange="updateProgress()" /></p>
+        <div id="progress-bar">
+            <div id="progress"></div>
+        </div>
+
+        <script>
+            function updateProgress() {
+                const totalPages = document.getElementById("total-pages").value;
+                const pagesRead = document.getElementById("pages-read").value;
+                if (totalPages && pagesRead) {
+                    const progressPercent = Math.min((pagesRead / totalPages) * 100, 100);
+                    document.getElementById("progress").style.width = progressPercent + "%";
+                }
+            }
+        </script>
+    </body>
+</html>

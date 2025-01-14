@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Habit Tracker</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding: 20px;
+            }
+            .habit {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 10px 0;
+            }
+            #progress {
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Habit Tracker</h1>
+        <div id="habits">
+            <div class="habit">
+                <span>Drink water</span>
+                <input type="checkbox" onchange="updateProgress()" />
+            </div>
+            <div class="habit">
+                <span>Exercise</span>
+                <input type="checkbox" onchange="updateProgress()" />
+            </div>
+            <div class="habit">
+                <span>Read a book</span>
+                <input type="checkbox" onchange="updateProgress()" />
+            </div>
+        </div>
+        <div id="progress">Progress: 0%</div>
+
+        <script>
+            function updateProgress() {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                const total = checkboxes.length;
+                const checked = Array.from(checkboxes).filter((cb) => cb.checked).length;
+                const progress = Math.floor((checked / total) * 100);
+                document.getElementById("progress").innerText = `Progress: ${progress}%`;
+            }
+        </script>
+    </body>
+</html>
