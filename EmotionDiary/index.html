@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Emotion Diary</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding: 20px;
+            }
+            .emotion {
+                font-size: 24px;
+                cursor: pointer;
+                margin: 10px;
+            }
+            #history {
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Emotion Diary</h1>
+        <p>How are you feeling today?</p>
+        <div>
+            <span class="emotion" onclick="selectEmotion('😊')">😊</span>
+            <span class="emotion" onclick="selectEmotion('😟')">😟</span>
+            <span class="emotion" onclick="selectEmotion('😡')">😡</span>
+            <span class="emotion" onclick="selectEmotion('😴')">😴</span>
+        </div>
+        <div id="history"></div>
+
+        <script>
+            const historyDiv = document.getElementById("history");
+
+            function selectEmotion(emotion) {
+                const now = new Date().toLocaleString();
+                const entry = `<p>${now} - Feeling ${emotion}</p>`;
+                historyDiv.innerHTML += entry;
+            }
+        </script>
+    </body>
+</html>
